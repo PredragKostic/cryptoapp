@@ -5,13 +5,13 @@ const cryptoNewsHeaders = {
     'X-RapidAPI-Key': '58bab0e1b9msh9d7482096fc9a3bp1203c9jsn335e2e66d2e5',
     'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
   }
-const baseUrl = 'https://bing-news-search1.p.rapidapi.com/news';
+const baseUrl = 'https://bing-news-search2.p.rapidapi.com';
 
 const createRequest = (url) => ({ url, headers: cryptoNewsHeaders });
 
 export const cryptoNewsApi = createApi({
   reducerPath: 'cryptoNewsApi',
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_NEWS_API_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
     getCryptoNews: builder.query({
       query: ({ newsCategory, count }) => createRequest(`/news/search?q=${newsCategory}&safeSearch=Off&textFormat=Raw&freshness=Day&count=${count}`),
